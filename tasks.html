@@ -4,10 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasks</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%
+        }
+        table,
+        th,
+        td {
+            border: 1px solid #000000;
+        }
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAf50;
+            color: #ffffff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
-    <table>
-            <thead>
+    <table class="table">
+            <thead class="th">
                 <tr>
                     <th>Title</th>
                     <th>Description</th>
@@ -16,7 +39,7 @@
                     <th>Process Level</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="td">
                 <tr>
                     <td>Reading</td>
                     <td>Read Module 2 of ICT 694</td>
