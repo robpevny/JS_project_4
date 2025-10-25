@@ -1,59 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Manager Pages</title>
-    <link rel="stylesheet" href="form.css">
-    
-</head>
+  </head>
 
-<body>
-    <h1> Task Form Page </h1>
-    <form>
-        <div>   
-            <label for="Title">Title</label>
-            <br />
-            <input id="title" type="text" />
-        </div><br />
-        <div>    
-            <label for="Description">Description</label>
-            <br />
-            <input 
-            id="Description" 
-            type="text" 
-            style="line-height: 50px" 
-            style="text-align: start" 
-            
-            
-            />
-        </div><br />
-        <div>
-            <label for="Category">Category</label>
-            <br />
-            <input id="Category" type="text" />
-        </div><br />    
-         <div>   
-            <label for="Priority level">Priority level</label>
-                <select name="Priority level" id="Priority level">
-                    <option value="Low">Low</option>
-                    <option value="Medium">Medium</option>
-                    <option value="High">High</option> 
-                </select>     
-            <br />
-            <br />
-            <label for="Process level">Process level</label>
-                <select name="Process level" id="Process level">
-                    <option value="One">One</option>
-                    <option value="Two">Two</option>
-                    <option value="Three">Three</option>
-                </select>
-            <br />
-            <br />
-        </div>
-            <input type="submit" value="submit">
+  <body>
+    <h1>Task Form Page</h1>
+    <form onsubmit="validateInputs (event)">
+      <div>
+        <label for="title">Title</label>
+        <br />
+        <input id="title" type="text" />
+      </div>
+      <br />
+      <div>
+        <label for="description">Description</label>
+        <br />
+        <input
+          id="description"
+          type="text"
+          style="line-height: 50px"
+        />
+      </div>
+      <br />
+      <div>
+        <label for="category">Category</label>
+        <br />
+        <input id="category" type="text" />
+      </div>
+      <br />
+      <div>
+        <label for="priorityLevel">Priority level</label>
+        <select name="priorityLevel" id="priorityLevel">
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+        <br />
+        <br />
+        <label for="processLevel">Process level</label>
+        <select name="processLevel" id="processLevel">
+          <option value="One">One</option>
+          <option value="Two">Two</option>
+          <option value="Three">Three</option>
+        </select>
+        <br />
+        <br />
+      </div>
 
+      <button type="submit">Submit</button><br>
+      <p id="summary"></p>
     </form>
-</body>
+
+    <script>
+        function validateInputs (event) {
+            event.preventDefault();
+
+            var title = document.getElementById("title").value;
+              if (!title ) {
+              // also could use
+              // if (Name != "") {
+              // } else {alert ("Title is empty"); 
+              // return false;}
+                  alert ("Title is empty");
+                  return false;
+              } 
+
+            var description = document.getElementById ("description").value;
+              if (!description) {
+                  alert ("Description is empty");
+                  return false;
+              }
+
+            var category = document.getElementById ("category").value;
+              if (!category) {
+                  alert ("Category is empty");
+                  return false;
+              }
+
+
+            var priorityLevel = document.getElementById ("priorityLevel").value;
+              if (!priorityLevel) {
+                  alert ("Priority level is empty");
+                  return false;
+              }
+            
+              var processLevel = document.getElementById ("processLevel").value;
+              if (!processLevel) {
+                  alert ("Process level is empty");
+                  return false;
+              }
+            
+              console.log(title, description, category, priorityLevel, priorityLevel);
+            
+              document.getElementById("summary").innerText = "Form submitted successfully!";
+              return true;  
+
+        }
+    </script>
+  </body>
 </html>
